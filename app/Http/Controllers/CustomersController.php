@@ -8,10 +8,10 @@ use Illuminate\Http\Request;
 class CustomersController extends Controller
 {
     public function index(){
-        $customers = Customer::all();
-
-        return view('internals/customers', [
-            'customers'=>$customers,]);
+        $inactiveCustomers = Customer::inactive()->get();
+        $activeCustomers = Customer::active()->get();
+        
+        return view('internals/customers', compact('inactiveCustomers', 'activeCustomers'));
     }
 
     public function store(Request $request){
@@ -19,12 +19,10 @@ class CustomersController extends Controller
         $data = $request->validate([
             'name' => 'required',
             'email' => 'required|email',
+            'active' => 'required',
         ]);
             
-        $customer = new Customer();
-        $customer->name = $data['name'];
-        $customer->email = $data['email'];
-        $customer->save();
+       Customer::create($data);
 
         return back();
     }
