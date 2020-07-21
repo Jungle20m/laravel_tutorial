@@ -1,5 +1,5 @@
 @extends('layout')
 
 @section('content')
-    <h1>Contact</h1>
+    <h3>welcome to laravel tutorial</h3>
 @endsection
