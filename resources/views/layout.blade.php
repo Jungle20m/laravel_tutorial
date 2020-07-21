@@ -6,30 +6,13 @@
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-        <title>Laravel</title>
+        <title>@yield('title', 'Default Title')</title>
     </head>
 
     <body>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class=container>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="contact">Contact</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="about">About us</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="customers">Customers</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+    
+        @include('nav')
+
         <div class=container>
             @yield('content')
         </div>

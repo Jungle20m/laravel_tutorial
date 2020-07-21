@@ -18,10 +18,12 @@ class CustomersController extends Controller
 
         $data = $request->validate([
             'name' => 'required',
+            'email' => 'required|email',
         ]);
             
         $customer = new Customer();
         $customer->name = $data['name'];
+        $customer->email = $data['email'];
         $customer->save();
 
         return back();
