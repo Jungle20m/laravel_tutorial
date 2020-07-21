@@ -27,6 +27,16 @@
                     </select>
                     <span class="error text-danger">{{ $errors->first('active') }}</span>
                 </div>
+                <div class="form-group">
+                    <label for="company">Company</label>
+                    <select name="company_id" id="company_id" class="form-control">
+                        <option value="" disabled>Select company</option>
+                        @foreach($companies as $company)
+                            <option value="{{ $company->id }}"> {{ $company->name }}</option>
+                        @endforeach
+                    </select>
+                    <span class="error text-danger">{{ $errors->first('company_id') }}</span>
+                </div>
                 <input type="submit" class="btn btn-primary" value="Submit">
 
                 @csrf
@@ -39,7 +49,7 @@
             <h3>Active Customers</h3>
             <ul>
                 @foreach ($activeCustomers as $activeCustomer)
-                    <li>{{ $activeCustomer->name }} <span class="text-muted">({{ $activeCustomer->email }})</span></li>
+                    <li>{{ $activeCustomer->name }} <span class="text-muted">({{ $activeCustomer->company->name }})</span></li>
                 @endforeach
             </ul>
         </div>
@@ -47,7 +57,7 @@
             <h3>Inactive Customers</h3>
             <ul>
                 @foreach ($inactiveCustomers as $inactiveCustomer)
-                    <li>{{ $inactiveCustomer->name }} <span class="text-muted">({{ $inactiveCustomer->email }})</span></li>
+                    <li>{{ $inactiveCustomer->name }} <span class="text-muted">({{ $inactiveCustomer->company->name }})</span></li>
                 @endforeach
             </ul>
         </div>
