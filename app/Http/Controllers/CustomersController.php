@@ -2,18 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Customer;
 use Illuminate\Http\Request;
 
 class CustomersController extends Controller
 {
     function index(){
-        $customers = [
-            'nguyen van a',
-            'nguyen van b',
-            'nguyen van c',
-            'nguyen van d',
-        ];
-    
+        $customers = Customer::all();
+
         return view('internals/customers', [
             'customers'=>$customers,]);
     }
