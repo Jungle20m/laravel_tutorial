@@ -22,6 +22,7 @@ class Customer extends Model
             0 => 'Inactive',
             1 => 'Active',
         ][$attribute];
+
     }
 
     public function company(){
