@@ -11,7 +11,6 @@
                 @include('customers/form')
 
                 <input type="submit" class="btn btn-primary" value="Edit">
-                
             </form>
         </div>
     </div>
