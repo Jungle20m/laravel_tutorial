@@ -3,11 +3,10 @@
 @section('title', 'Customer list')
 
 @section('content')
-
     <div class="row">
         <div class="col-12">
-            <h1>Customer</h1>
-            <form action="customers" method="post" class="pb-5">
+            <h1>Add customer</h1>
+            <form action="/customers" method="post" class="pb-5">
                 <div class="form-group">
                     <label for="name">User Name</label>
                     <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}">
@@ -38,33 +37,10 @@
                     <span class="error text-danger">{{ $errors->first('company_id') }}</span>
                 </div>
                 <input type="submit" class="btn btn-primary" value="Submit">
-
                 @csrf
             </form>
         </div>
     </div>
-
-    <div class="row">
-        <div class="col-6">
-            <h3>Active Customers</h3>
-            <ul>
-                @foreach ($activeCustomers as $activeCustomer)
-                    <li>{{ $activeCustomer->name }} <span class="text-muted">({{ $activeCustomer->company->name }})</span></li>
-                @endforeach
-            </ul>
-        </div>
-        <div class="col-6">
-            <h3>Inactive Customers</h3>
-            <ul>
-                @foreach ($inactiveCustomers as $inactiveCustomer)
-                    <li>{{ $inactiveCustomer->name }} <span class="text-muted">({{ $inactiveCustomer->company->name }})</span></li>
-                @endforeach
-            </ul>
-        </div>
-    </div>
-    
-
-    
 @endsection
 
 

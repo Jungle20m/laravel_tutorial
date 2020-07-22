@@ -17,6 +17,13 @@ class Customer extends Model
         return $query->where('active', 0);
     }
 
+    public function getActiveAttribute($attribute){
+        return [
+            0 => 'Inactive',
+            1 => 'Active',
+        ][$attribute];
+    }
+
     public function company(){
         return $this->belongsTo(Company::class);
     }
